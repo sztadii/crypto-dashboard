@@ -1,8 +1,14 @@
-.card {
+@import 'src/assets/styles/mixins';
+
+.content {
   padding: 2rem;
   border-radius: 20px;
   background: var(--white);
   display: flex;
+
+  @include max-tablet {
+    flex-direction: column;
+  }
 }
 
 .detailsImage {
@@ -11,5 +17,5 @@
   background: var(--silver);
   padding: 12px;
   border-radius: 12px;
-  margin-right: 1rem;
+  margin: 0 2rem 2rem 0;
 }
