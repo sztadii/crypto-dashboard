@@ -21,11 +21,11 @@ jobs:
       - name: Linting
         run: npm run lint
 
-      - name: Tests
-        run: npm test
-
-      - name: Checking build
-        run: npm run build
+      - name: Unit / integration tests
+        run: npm run test-unit
 
       - name: E2E tests
         run: npm run test-e2e
+
+      - name: Checking build
+        run: npm run build

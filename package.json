@@ -5,8 +5,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test --silent",
-    "test-e2e": "cypress run",
+    "test-unit": "CI=true react-scripts test --silent",
+    "test-e2e": "start-server-and-test start http://localhost:3000 test-cypress",
+    "test-cypress": "cypress run --config-file cypress/cypress.json",
     "lint": "npm run lint-scripts && npm run lint-files",
     "lint-scripts": "eslint \"./**/*.{ts,tsx}\" --max-warnings 0 --ignore-path .gitignore",
     "lint-files": "file-naming-enforcer type=kebabCase ignore=[README,public,build,setupTests]",
@@ -30,6 +31,7 @@
     "lint-staged": "^12.3.2",
     "prettier": "^2.5.1",
     "react-scripts": "5.0.0",
+    "start-server-and-test": "^1.14.0",
     "typescript": "^4.5.5"
   },
   "eslintConfig": {
