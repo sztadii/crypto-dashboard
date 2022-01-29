@@ -1,7 +1,7 @@
 import td from 'testdouble'
 import { screen, render } from '@testing-library/react'
-import { ContextType } from 'context'
 import App from 'app'
+import { ContextType } from 'context'
 import { Exchange } from 'services/coin-gecko-service.types'
 
 describe('home component', () => {

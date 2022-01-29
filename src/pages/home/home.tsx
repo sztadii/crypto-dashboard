@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useContext } from 'context'
+import { routes } from 'router'
 import Spinner from 'components/spinner'
 import './home.css'
-import { routes } from '../../router'
 
 export default function Home() {
   const context = useContext()
