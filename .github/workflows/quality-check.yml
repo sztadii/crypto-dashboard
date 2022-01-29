@@ -26,3 +26,6 @@ jobs:
 
       - name: Checking build
         run: npm run build
+
+      - name: E2E tests
+        run: npm run test-e2e
