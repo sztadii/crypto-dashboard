@@ -2,19 +2,6 @@
   "name": "crypto-dashboard",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.0",
-    "@types/node": "^16.11.21",
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "typescript": "^4.5.5"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -22,7 +9,27 @@
     "eject": "react-scripts eject",
     "lint": "npm run lint-scripts && npm run lint-files",
     "lint-scripts": "eslint \"./**/*.{ts,tsx}\" --max-warnings 0 --ignore-path .gitignore",
-    "lint-files": "file-naming-enforcer type=kebabCase ignore=[README,public,build,setupTests]"
+    "lint-files": "file-naming-enforcer type=kebabCase ignore=[README,public,build,setupTests]",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,css}\""
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^16.11.21",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "file-naming-enforcer": "^1.4.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^12.3.2",
+    "prettier": "^2.5.1",
+    "react-scripts": "5.0.0",
+    "typescript": "^4.5.5"
   },
   "eslintConfig": {
     "extends": [
@@ -48,7 +55,21 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "file-naming-enforcer": "^1.4.0"
+  "prettier": {
+    "tabWidth": 2,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "semi": false,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,json,css}": [
+      "prettier --write --"
+    ]
   }
 }
