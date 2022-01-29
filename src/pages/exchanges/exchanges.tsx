@@ -40,7 +40,7 @@ export default function Exchanges() {
           <div className={classes.listItemSection}>{exchange.name}</div>
           <div className={classes.listItemSection}>{exchange.country}</div>
           <div className={[classes.listItemSection, 'no-border'].join(' ')}>
-            {exchange.trust_score_rank}
+            <strong>Trust score:</strong> {exchange.trust_score_rank}
           </div>
 
           <a
