@@ -22,22 +22,22 @@ export default function Home() {
         <Link
           to={detailsPagePath}
           key={exchange.name}
-          className={classes.homeItem}
+          className={classes.listItem}
           data-testid="exchange-item"
         >
           <img
             className={[
-              classes.homeIcon,
-              classes.homeItemSection,
+              classes.icon,
+              classes.listItemSection,
               'no-border'
             ].join(' ')}
             src={exchange.image}
             alt={exchange.name}
           />
 
-          <div className={classes.homeItemSection}>{exchange.name}</div>
-          <div className={classes.homeItemSection}>{exchange.country}</div>
-          <div className={[classes.homeItemSection, 'no-border'].join(' ')}>
+          <div className={classes.listItemSection}>{exchange.name}</div>
+          <div className={classes.listItemSection}>{exchange.country}</div>
+          <div className={[classes.listItemSection, 'no-border'].join(' ')}>
             {exchange.trust_score_rank}
           </div>
 
@@ -45,7 +45,7 @@ export default function Home() {
             href={exchange.url}
             target="_blank"
             rel="noreferrer"
-            className={classes.homeExternalLink}
+            className={classes.externalLink}
             onClick={e => e.stopPropagation()}
           >
             Link

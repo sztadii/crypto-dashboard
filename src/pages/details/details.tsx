@@ -21,7 +21,7 @@ export default function Details() {
     if (!exchange) return 'No data to display'
 
     return (
-      <div className={classes.detailsContent}>
+      <div className={classes.card}>
         <img
           className={classes.detailsImage}
           src={exchange.image}

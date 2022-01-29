@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     <div className={classes.navigation}>
       <NavLink to={routes.home.getPath()}>
-        <Logo className={classes.navigationLogo} />
+        <Logo className={classes.logo} />
       </NavLink>
     </div>
   )
