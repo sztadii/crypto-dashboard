@@ -1,12 +1,16 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useEffect } from 'react'
 import './app.css'
+import CoinGeckoService from './services/coin-gecko-service'
 
 function App() {
+  useEffect(() => {
+    const coinGeckoService = new CoinGeckoService()
+    coinGeckoService.findExchanges().then(console.log)
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
