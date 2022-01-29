@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useContext } from 'context'
 import { routes } from 'router'
 import Spinner from 'components/spinner'
-import './details.css'
+import './details.scss'
 
 export default function Details() {
   const homePath = routes.home.getPath()
