@@ -1,16 +1,24 @@
 import './home.css'
-import { useEffect } from 'react'
-import CoinGeckoService from '../../services/coin-gecko-service'
+import { useEffect, useState } from 'react'
+import { Exchange } from '../../services/coin-gecko-service.types'
+import { useContext } from '../../context'
 
 export default function Home() {
+  const context = useContext()
+  const [exchanges, setExchanges] = useState<Exchange[]>([])
+
   useEffect(() => {
-    const coinGeckoService = new CoinGeckoService()
-    coinGeckoService.findExchanges().then(console.log)
-  }, [])
+    context.coinGeckoService.findExchanges().then(exchanges => {
+      setExchanges(exchanges)
+    })
+  }, [context])
 
   return (
     <div className="home">
       <h1>Home page</h1>
+      {exchanges.map(e => {
+        return <div key={e.name}>{e.name}</div>
+      })}
     </div>
   )
 }

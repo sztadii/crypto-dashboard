@@ -1,10 +1,19 @@
 import { StrictMode } from 'react'
 import { RouterProvider } from 'router'
+import { ContextProvider, ContextType } from 'context'
 
-export default function App() {
+interface Props {
+  context?: ContextType
+}
+
+export default function App(props: Props) {
+  const { context } = props || {}
+
   return (
     <StrictMode>
-      <RouterProvider />
+      <ContextProvider value={context}>
+        <RouterProvider />
+      </ContextProvider>
     </StrictMode>
   )
 }
