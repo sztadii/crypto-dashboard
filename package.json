@@ -1,7 +1,5 @@
 {
   "name": "crypto-dashboard",
-  "version": "0.1.0",
-  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -33,6 +31,9 @@
     "react-scripts": "5.0.0",
     "start-server-and-test": "^1.14.0",
     "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": "14.17.1"
   },
   "eslintConfig": {
     "extends": [
