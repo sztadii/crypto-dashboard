@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom'
 import { routes } from 'router'
-import './navigation.scss'
+import classes from './navigation.module.scss'
 import { ReactComponent as Logo } from 'assets/images/logo.svg'
 
 export default function Navigation() {
   return (
-    <div className="navigation">
+    <div className={classes.navigation}>
       <NavLink to={routes.home.getPath()}>
-        <Logo className="navigation__logo" />
+        <Logo className={classes.navigationLogo} />
       </NavLink>
     </div>
   )

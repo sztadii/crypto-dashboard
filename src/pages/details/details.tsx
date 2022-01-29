@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useContext } from 'context'
 import { routes } from 'router'
 import Spinner from 'components/spinner'
-import './details.scss'
+import classes from './details.module.scss'
 
 export default function Details() {
   const homePath = routes.home.getPath()
@@ -21,9 +21,9 @@ export default function Details() {
     if (!exchange) return 'No data to display'
 
     return (
-      <div className="details__content">
+      <div className={classes.detailsContent}>
         <img
-          className="details__image"
+          className={classes.detailsImage}
           src={exchange.image}
           alt={exchange.name}
         />
@@ -65,7 +65,7 @@ export default function Details() {
   }
 
   return (
-    <div className="details">
+    <div>
       <Link to={homePath}>
         <h1>Back to home</h1>
       </Link>

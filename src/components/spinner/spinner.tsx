@@ -1,11 +1,11 @@
 import React from 'react'
-import './spinner.scss'
+import classes from './spinner.module.scss'
 
 export default function Spinner() {
   return (
-    <div className="spinner" data-testid="spinner">
-      <div className="spinner__inner" />
-      <div className="spinner__inner" />
+    <div className={classes.spinner} data-testid="spinner">
+      <div className={classes.spinnerInner} />
+      <div className={classes.spinnerInner} />
     </div>
   )
 }

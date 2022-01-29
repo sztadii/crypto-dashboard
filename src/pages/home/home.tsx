@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useContext } from 'context'
 import { routes } from 'router'
 import Spinner from 'components/spinner'
-import './home.scss'
+import classes from './home.module.scss'
 
 export default function Home() {
   const context = useContext()
@@ -22,18 +22,22 @@ export default function Home() {
         <Link
           to={detailsPagePath}
           key={exchange.name}
-          className="home__item"
+          className={classes.homeItem}
           data-testid="exchange-item"
         >
           <img
-            className="home__icon home__item-section no-border"
+            className={[
+              classes.homeIcon,
+              classes.homeItemSection,
+              'no-border'
+            ].join(' ')}
             src={exchange.image}
             alt={exchange.name}
           />
 
-          <div className="home__item-section">{exchange.name}</div>
-          <div className="home__item-section">{exchange.country}</div>
-          <div className="home__item-section no-border">
+          <div className={classes.homeItemSection}>{exchange.name}</div>
+          <div className={classes.homeItemSection}>{exchange.country}</div>
+          <div className={[classes.homeItemSection, 'no-border'].join(' ')}>
             {exchange.trust_score_rank}
           </div>
 
@@ -41,7 +45,7 @@ export default function Home() {
             href={exchange.url}
             target="_blank"
             rel="noreferrer"
-            className="home__external-link"
+            className={classes.homeExternalLink}
             onClick={e => e.stopPropagation()}
           >
             Link
