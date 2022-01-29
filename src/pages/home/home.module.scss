@@ -6,27 +6,27 @@
   transition: 0.3s;
 
   &:hover {
-    background: white;
+    background: var(--white);
   }
 }
 
 .homeItemSection {
   margin-right: 1rem;
   padding-right: 1rem;
-  border-right: 1px solid #bbbbbb;
+  border-right: 1px solid var(--silver);
 }
 
 .homeIcon {
   height: 20px;
   width: 20px;
-  background: #bbbbbb;
+  background: var(--silver);
   padding: 6px;
   border-radius: 6px;
   display: flex;
   transition: 0.3s;
 
   .homeItem:hover & {
-    background: #8d8d8d;
+    background: var(--green);
     transform: scale(1.05);
   }
 }
@@ -34,10 +34,10 @@
 .homeExternalLink {
   opacity: 0;
   transition: 0.3s;
-  background: #bbbbbb;
-  color: white;
+  background: var(--mine-haft);
+  color: var(--white);
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 6px;
   margin-left: auto;
 
   .homeItem:hover & {
