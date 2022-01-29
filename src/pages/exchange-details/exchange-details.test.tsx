@@ -40,12 +40,32 @@ describe('exchange-details component', () => {
 
     td.when(context.coinGeckoService.getExchange('binance')).thenResolve({
       name: 'Bitcoin',
-      country: 'Poland'
+      country: 'Poland',
+      trust_score_rank: 1,
+      year_established: 2022,
+      description: 'Some desc',
+      facebook_url: 'https://facebook.com/profile',
+      reddit_url: 'https://redit.com/profile',
+      slack_url: 'https://slack.com/profile',
+      telegram_url: 'https://telegram.com/profile',
+      twitter_handle: 'twitter-profile'
     })
 
     render(<App initialPath={initialPath} context={context} />)
 
-    expect(await screen.findByText(/Bitcoin/)).toBeVisible()
-    expect(await screen.findByText(/Poland/)).toBeVisible()
+    expect(await screen.findByText('Bitcoin')).toBeVisible()
+    expect(await screen.findByText('Poland')).toBeVisible()
+    expect(await screen.findByText('1')).toBeVisible()
+    expect(await screen.findByText('2022')).toBeVisible()
+    expect(await screen.findByText('Some desc')).toBeVisible()
+    expect(
+      await screen.findByText('https://facebook.com/profile')
+    ).toBeVisible()
+    expect(await screen.findByText('https://redit.com/profile')).toBeVisible()
+    expect(await screen.findByText('https://slack.com/profile')).toBeVisible()
+    expect(
+      await screen.findByText('https://telegram.com/profile')
+    ).toBeVisible()
+    expect(await screen.findByText('twitter-profile')).toBeVisible()
   })
 })
