@@ -20,6 +20,19 @@ export default function ExchangeDetails() {
     if (isError) return <p>Something went wrong</p>
     if (!exchange) return <p>No data to display</p>
 
+    const detailsToRender = [
+      ['Name', exchange.name],
+      ['Country', exchange.country],
+      ['Trust score rank', exchange.trust_score_rank],
+      ['Year of establishment', exchange.year_established],
+      ['Description', exchange.description],
+      ['Facebook', exchange.facebook_url],
+      ['Reddit', exchange.reddit_url],
+      ['Slack', exchange.slack_url],
+      ['Telegram', exchange.telegram_url],
+      ['Twitter', exchange.twitter_handle]
+    ]
+
     return (
       <div className={classes.content}>
         <img
@@ -29,36 +42,14 @@ export default function ExchangeDetails() {
         />
 
         <div>
-          <p>
-            <strong>Name:</strong> {exchange.name}
-          </p>
-          <p>
-            <strong>Country:</strong> {exchange.country}
-          </p>
-          <p>
-            <strong>Trust score rank:</strong> {exchange.trust_score_rank}
-          </p>
-          <p>
-            <strong>Year of establishment:</strong> {exchange.year_established}
-          </p>
-          <p>
-            <strong>Description:</strong> {exchange.description || '-'}
-          </p>
-          <p>
-            <strong>Facebook:</strong> {exchange.facebook_url || '-'}
-          </p>
-          <p>
-            <strong>Reddit:</strong> {exchange.reddit_url || '-'}
-          </p>
-          <p>
-            <strong>Slack:</strong> {exchange.slack_url || '-'}
-          </p>
-          <p>
-            <strong>Telegram:</strong> {exchange.telegram_url || '-'}
-          </p>
-          <p>
-            <strong>Twitter:</strong> {exchange.twitter_handle || '-'}
-          </p>
+          {detailsToRender.map(detail => {
+            const [label, value] = detail
+            return (
+              <p key={label}>
+                <strong>{label}:</strong> {value || '-'}
+              </p>
+            )
+          })}
         </div>
       </div>
     )
