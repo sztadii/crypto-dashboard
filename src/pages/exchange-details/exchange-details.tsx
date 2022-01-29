@@ -17,8 +17,8 @@ export default function ExchangeDetails() {
     const { data: exchange, isLoading, isError } = query
 
     if (isLoading) return <Spinner />
-    if (isError) return 'Something went wrong'
-    if (!exchange) return 'No data to display'
+    if (isError) return <p>Something went wrong</p>
+    if (!exchange) return <p>No data to display</p>
 
     return (
       <div className={classes.card}>

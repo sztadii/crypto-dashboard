@@ -15,8 +15,8 @@ export default function Exchanges() {
     const { data: exchanges, isLoading, isError } = query
 
     if (isLoading) return <Spinner />
-    if (isError) return 'Something went wrong'
-    if (!exchanges?.length) return 'No data to display'
+    if (isError) return <p>Something went wrong</p>
+    if (!exchanges?.length) return <p>No data to display</p>
 
     return exchanges.map(exchange => {
       const detailsPagePath = routes.exchangeDetails.getPath(exchange.id)
