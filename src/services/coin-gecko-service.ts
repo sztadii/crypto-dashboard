@@ -1,13 +1,15 @@
-import HttpService from './http-service'
+import axios, { AxiosInstance } from 'axios'
 import { Exchange, ExchangeWithDetails } from './coin-gecko-service.types'
 
 /**
  * The CoinGecko is a public API to fetch a useful info about latest cryptocurrencies.
  * The link to docs https://www.coingecko.com/en/api/documentation
  * */
-export default class CoinGeckoService extends HttpService {
-  constructor() {
-    super('https://api.coingecko.com/api/v3')
+export default class CoinGeckoService {
+  private httpClient: AxiosInstance
+
+  constructor(baseURL = 'https://api.coingecko.com/api/v3') {
+    this.httpClient = axios.create({ baseURL })
   }
 
   findExchanges = (limit = 10): Promise<Exchange[]> => {
