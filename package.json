@@ -24,6 +24,7 @@
     "@types/node": "^16.11.21",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "bundlesize": "^0.18.1",
     "cypress": "^9.3.1",
     "file-naming-enforcer": "^1.4.0",
     "husky": "^4.3.8",
@@ -79,5 +80,19 @@
     "*.{ts,tsx,js,json,css}": [
       "prettier --write --"
     ]
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./build/index.html",
+      "maxSize": "2 kb"
+    },
+    {
+      "path": "./build/**/*.js",
+      "maxSize": "200 kB"
+    },
+    {
+      "path": "./build/**/*.css",
+      "maxSize": "20 kB"
+    }
+  ]
 }
