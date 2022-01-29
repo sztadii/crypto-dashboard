@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import './app.css'
 import CoinGeckoService from './services/coin-gecko-service'
 
 function App() {
