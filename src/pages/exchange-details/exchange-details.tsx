@@ -21,7 +21,7 @@ export default function ExchangeDetails() {
     if (!exchange) return <p>No data to display</p>
 
     return (
-      <div className={classes.card}>
+      <div className={classes.content}>
         <img
           className={classes.detailsImage}
           src={exchange.image}
