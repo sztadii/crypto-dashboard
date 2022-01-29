@@ -1,17 +1,39 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import {
+  unstable_HistoryRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import Home from 'pages/home'
+import Details from 'pages/details'
 import Navigation from 'components/navigation'
 
 export const routes = {
   home: {
     getPath: () => '/',
     component: Home
+  },
+  details: {
+    getPath: (exchangeId = ':exchangeId') => `/details/${exchangeId}`,
+    component: Details
   }
 }
 
-export function RouterProvider() {
+interface RouterProviderProps {
+  initialPath?: string
+}
+
+export function RouterProvider(props: RouterProviderProps) {
+  const { initialPath = routes.home.getPath() } = props
+  const history = createBrowserHistory()
+
+  useEffect(() => {
+    history.push(initialPath)
+  }, [])
+
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div className="app">
         <Navigation />
 
@@ -25,6 +47,6 @@ export function RouterProvider() {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
+    </Router>
   )
 }

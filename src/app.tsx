@@ -1,20 +1,21 @@
 import { StrictMode } from 'react'
-import { RouterProvider } from 'router'
+import { CacheProvider } from 'cache'
 import { ContextProvider, ContextType } from 'context'
-import { CacheProvider } from './cache'
+import { RouterProvider } from 'router'
 
 interface Props {
+  initialPath?: string
   context?: ContextType
 }
 
-export default function App(props: Props) {
-  const { context } = props || {}
+export default function App(props?: Props) {
+  const { initialPath, context } = props || {}
 
   return (
     <StrictMode>
       <ContextProvider value={context}>
         <CacheProvider>
-          <RouterProvider />
+          <RouterProvider initialPath={initialPath} />
         </CacheProvider>
       </ContextProvider>
     </StrictMode>

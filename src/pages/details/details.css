@@ -1,0 +1,18 @@
+.details {
+}
+
+.details__content {
+  padding: 2rem;
+  border-radius: 20px;
+  background: white;
+  display: flex;
+}
+
+.details__image {
+  width: 100px;
+  height: 100px;
+  background: #bbbbbb;
+  padding: 12px;
+  border-radius: 12px;
+  margin-right: 1rem;
+}

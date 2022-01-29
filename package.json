@@ -8,7 +8,7 @@
     "test-cypress": "cypress run --config-file cypress/cypress.json",
     "lint": "npm run lint-scripts && npm run lint-files",
     "lint-scripts": "eslint \"./**/*.{ts,tsx}\" --max-warnings 0 --ignore-path .gitignore",
-    "lint-files": "file-naming-enforcer type=kebabCase ignore=[README,public,build,setupTests]",
+    "lint-files": "file-naming-enforcer type=kebabCase ignore=[README,public,build,videos,setupTests]",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,css}\""
   },
   "dependencies": {
@@ -47,7 +47,8 @@
       "max-lines": [
         "error",
         300
-      ]
+      ],
+      "react-hooks/exhaustive-deps": "off"
     }
   },
   "browserslist": {

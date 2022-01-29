@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import { useContext } from 'context'
 import Spinner from 'components/spinner'
 import './home.css'
+import { routes } from '../../router'
 
 export default function Home() {
   const context = useContext()
@@ -16,7 +17,7 @@ export default function Home() {
     if (!exchanges?.length) return 'No data to display'
 
     return exchanges.map(exchange => {
-      const detailsPagePath = '/'
+      const detailsPagePath = routes.details.getPath(exchange.id)
       return (
         <Link
           to={detailsPagePath}
