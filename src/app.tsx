@@ -1,29 +1,10 @@
-import React, { useEffect } from 'react'
-import CoinGeckoService from './services/coin-gecko-service'
+import { StrictMode } from 'react'
+import { RouterProvider } from 'router'
 
-function App() {
-  useEffect(() => {
-    const coinGeckoService = new CoinGeckoService()
-    coinGeckoService.findExchanges().then(console.log)
-  }, [])
-
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StrictMode>
+      <RouterProvider />
+    </StrictMode>
   )
 }
-
-export default App
