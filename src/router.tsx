@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from 'pages/home'
+import Navigation from 'components/navigation'
 
 export const routes = {
   home: {
@@ -11,13 +12,19 @@ export const routes = {
 export function RouterProvider() {
   return (
     <BrowserRouter>
-      <Routes>
-        {Object.values(routes).map(route => {
-          const { getPath, component: Component } = route
-          const path = getPath()
-          return <Route key={path} path={path} element={<Component />} />
-        })}
-      </Routes>
+      <div className="app">
+        <Navigation />
+
+        <div className="app__container">
+          <Routes>
+            {Object.values(routes).map(route => {
+              const { getPath, component: Component } = route
+              const path = getPath()
+              return <Route key={path} path={path} element={<Component />} />
+            })}
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   )
 }

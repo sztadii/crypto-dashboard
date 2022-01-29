@@ -1,2 +1,48 @@
 .home {
 }
+
+.home__item {
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.home__item:hover {
+  background: white;
+}
+
+.home__item-section {
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid #bbbbbb;
+}
+
+.home__icon {
+  height: 20px;
+  width: 20px;
+  background: #bbbbbb;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  transition: 0.3s;
+}
+
+.home__item:hover .home__icon {
+  background: #8d8d8d;
+  transform: scale(1.05);
+}
+
+.home__external-link {
+  opacity: 0;
+  transition: 0.3s;
+  background: #bbbbbb;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.home__item:hover .home__external-link {
+  opacity: 1;
+}

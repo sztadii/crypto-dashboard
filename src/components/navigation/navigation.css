@@ -1,0 +1,9 @@
+.navigation {
+  background: white;
+  padding: 30px 20px;
+  box-shadow: 4px 4px 12px 0 #e5e5e5;
+}
+
+.navigation__logo {
+  height: 60px;
+}
