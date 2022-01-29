@@ -4,8 +4,8 @@ import App from 'app'
 import { ContextType } from 'context'
 import { Exchange } from 'services/coin-gecko-service.types'
 
-describe('home component', () => {
-  it('when the exchange list is fetching then display a loading', async () => {
+describe('exchanges', () => {
+  it('when the list is fetching then display a loading', async () => {
     render(<App />)
 
     expect(await screen.findByTestId('spinner')).toBeVisible()
@@ -33,7 +33,7 @@ describe('home component', () => {
     expect(await screen.findByText('No data to display')).toBeVisible()
   })
 
-  it('when we fetched the exchange list then render it', async () => {
+  it('when we fetched the list then render it', async () => {
     const context = td.object<ContextType>()
 
     td.when(context.coinGeckoService.findExchanges()).thenResolve([

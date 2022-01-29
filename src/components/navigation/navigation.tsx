@@ -6,7 +6,7 @@ import { ReactComponent as Logo } from 'assets/images/logo.svg'
 export default function Navigation() {
   return (
     <div className={classes.navigation}>
-      <NavLink to={routes.home.getPath()}>
+      <NavLink to={routes.exchanges.getPath()}>
         <Logo className={classes.logo} />
       </NavLink>
     </div>

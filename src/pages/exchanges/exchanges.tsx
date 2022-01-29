@@ -3,11 +3,13 @@ import { useQuery } from 'react-query'
 import { useContext } from 'context'
 import { routes } from 'router'
 import Spinner from 'components/spinner'
-import classes from './home.module.scss'
+import classes from './exchanges.module.scss'
 
-export default function Home() {
+export default function Exchanges() {
   const context = useContext()
-  const query = useQuery('home', () => context.coinGeckoService.findExchanges())
+  const query = useQuery('exchanges', () =>
+    context.coinGeckoService.findExchanges()
+  )
 
   function renderExchangeList() {
     const { data: exchanges, isLoading, isError } = query
@@ -17,7 +19,7 @@ export default function Home() {
     if (!exchanges?.length) return 'No data to display'
 
     return exchanges.map(exchange => {
-      const detailsPagePath = routes.details.getPath(exchange.id)
+      const detailsPagePath = routes.exchangeDetails.getPath(exchange.id)
       return (
         <Link
           to={detailsPagePath}
@@ -56,7 +58,7 @@ export default function Home() {
   }
 
   return (
-    <div className="home">
+    <div>
       <h1>Exchanges</h1>
 
       {renderExchangeList()}

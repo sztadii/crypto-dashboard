@@ -3,13 +3,13 @@ import { useQuery } from 'react-query'
 import { useContext } from 'context'
 import { routes } from 'router'
 import Spinner from 'components/spinner'
-import classes from './details.module.scss'
+import classes from './exchange-details.module.scss'
 
-export default function Details() {
-  const homePath = routes.home.getPath()
+export default function ExchangeDetails() {
+  const homePath = routes.exchanges.getPath()
   const params = useParams()
   const context = useContext()
-  const query = useQuery(`details-${params.exchangeId}`, () =>
+  const query = useQuery(`exchange-details-${params.exchangeId}`, () =>
     context.coinGeckoService.getExchange(params.exchangeId!)
   )
 

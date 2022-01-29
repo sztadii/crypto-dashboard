@@ -4,9 +4,9 @@ import { ContextType } from 'context'
 import { routes } from 'router'
 import App from 'app'
 
-describe('details component', () => {
+describe('exchange-details component', () => {
   it('when we render the component then display the "Back to home" link', async () => {
-    const initialPath = routes.details.getPath('binance')
+    const initialPath = routes.exchangeDetails.getPath('binance')
 
     render(<App initialPath={initialPath} />)
 
@@ -14,7 +14,7 @@ describe('details component', () => {
   })
 
   it('when the exchange item is fetching then display a loading', async () => {
-    const initialPath = routes.details.getPath('binance')
+    const initialPath = routes.exchangeDetails.getPath('binance')
 
     render(<App initialPath={initialPath} />)
 
@@ -22,7 +22,7 @@ describe('details component', () => {
   })
 
   it('when we receive an error then display a warning', async () => {
-    const initialPath = routes.details.getPath('binance')
+    const initialPath = routes.exchangeDetails.getPath('binance')
     const context = td.object<ContextType>()
 
     td.when(context.coinGeckoService.getExchange('binance')).thenReject(
@@ -35,7 +35,7 @@ describe('details component', () => {
   })
 
   it('when we fetched the exchange then render its details', async () => {
-    const initialPath = routes.details.getPath('binance')
+    const initialPath = routes.exchangeDetails.getPath('binance')
     const context = td.object<ContextType>()
 
     td.when(context.coinGeckoService.getExchange('binance')).thenResolve({
