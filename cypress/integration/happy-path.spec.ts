@@ -1,4 +1,4 @@
-describe('todo.spec.js', () => {
+describe('happy-path', () => {
   it('when a user clicks the single exchange from the home page then he can see the exchange details', () => {
     cy.visit('/')
     cy.get('[data-testid="exchange-item"]').first().click()
