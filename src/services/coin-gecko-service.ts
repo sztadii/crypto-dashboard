@@ -1,20 +1,10 @@
 import HttpService from './http-service'
+import { Exchange, ExchangeWithDetails } from './coin-gecko-service.types'
 
-export interface Exchange {
-  id: string
-  name: string
-  year_established?: number
-  country: string
-  description: string
-  url: string
-  image: string
-  has_trading_incentive: boolean
-  trust_score: number
-  trust_score_rank: number
-  trade_volume_24h_btc: number
-  trade_volume_24h_btc_normalized: number
-}
-
+/**
+ * The CoinGecko is a public API to fetch a useful info about latest cryptocurrencies.
+ * The link to docs https://www.coingecko.com/en/api/documentation
+ * */
 export default class CoinGeckoService extends HttpService {
   constructor() {
     super('https://api.coingecko.com/api/v3')
@@ -26,5 +16,9 @@ export default class CoinGeckoService extends HttpService {
         params: { per_page: limit }
       })
       .then(res => res.data)
+  }
+
+  getExchange = (id: string): Promise<ExchangeWithDetails> => {
+    return this.httpClient.get(`/exchanges/${id}`).then(res => res.data)
   }
 }
