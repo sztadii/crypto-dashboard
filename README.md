@@ -23,4 +23,4 @@ Vercel.app is handling the whole deployment. <br>
 Each PR the Vercel is creating the link to the staging, <br>
 so we can preview new changes ( which is awesome ^.^ ) <br>
 If you want to look at the production, <br>
-the link is in the "About section" ( also automatically added by Vercel )
+please visit this link https://crypto-dashboard-sztadii.vercel.app
