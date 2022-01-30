@@ -7,12 +7,12 @@ import classes from './exchanges.module.scss'
 
 export default function Exchanges() {
   const context = useContext()
-  const query = useQuery('exchanges', () =>
+  const exchangesResponse = useQuery('exchanges', () =>
     context.coinGeckoService.findExchanges()
   )
 
   function renderExchangeList() {
-    const { data: exchanges, isLoading, isError } = query
+    const { data: exchanges, isLoading, isError } = exchangesResponse
 
     if (isLoading) return <Spinner />
     if (isError) return <p>Something went wrong</p>

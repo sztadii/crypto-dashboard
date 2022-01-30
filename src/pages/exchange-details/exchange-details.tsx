@@ -9,12 +9,13 @@ export default function ExchangeDetails() {
   const homePath = routes.exchanges.getPath()
   const params = useParams()
   const context = useContext()
-  const query = useQuery(`exchange-details-${params.exchangeId}`, () =>
-    context.coinGeckoService.getExchange(params.exchangeId!)
+  const exchangeResponse = useQuery(
+    `exchange-details-${params.exchangeId}`,
+    () => context.coinGeckoService.getExchange(params.exchangeId!)
   )
 
   function renderContent() {
-    const { data: exchange, isLoading, isError } = query
+    const { data: exchange, isLoading, isError } = exchangeResponse
 
     if (isLoading) return <Spinner />
     if (isError) return <p>Something went wrong</p>
