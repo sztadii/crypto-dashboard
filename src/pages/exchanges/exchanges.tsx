@@ -28,18 +28,14 @@ export default function Exchanges() {
           data-testid="exchange-item"
         >
           <img
-            className={[
-              classes.icon,
-              classes.listItemSection,
-              'no-border'
-            ].join(' ')}
+            className={`${classes.icon} ${classes.listItemSection} no-border`}
             src={exchange.image}
             alt={exchange.name}
           />
 
           <div className={classes.listItemSection}>{exchange.name}</div>
           <div className={classes.listItemSection}>{exchange.country}</div>
-          <div className={[classes.listItemSection, 'no-border'].join(' ')}>
+          <div className={`${classes.listItemSection} no-border`}>
             <strong>Trust score:</strong> {exchange.trust_score_rank}
           </div>
 
