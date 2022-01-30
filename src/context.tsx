@@ -1,13 +1,16 @@
 import React, { createContext, FC } from 'react'
 import CoinGeckoService from './services/coin-gecko-service'
 
-const initialContext = {
+export type ContextType = {
+  initialPath?: string
+  coinGeckoService: CoinGeckoService
+}
+
+const initialContext: ContextType = {
   coinGeckoService: new CoinGeckoService()
 }
 
 const Context = createContext(initialContext)
-
-export type ContextType = typeof initialContext
 
 export const ContextProvider: FC<{ value?: ContextType }> = props => {
   const context = {

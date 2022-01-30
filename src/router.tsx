@@ -4,6 +4,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import { useContext } from 'context'
 import { createBrowserHistory } from 'history'
 import Exchanges from 'pages/exchanges'
 import ExchangeDetails from 'pages/exchange-details'
@@ -21,13 +22,10 @@ export const routes = {
   }
 }
 
-interface RouterProviderProps {
-  initialPath?: string
-}
-
-export function RouterProvider(props: RouterProviderProps) {
-  const { initialPath = routes.exchanges.getPath() } = props
+export function RouterProvider() {
+  const context = useContext()
   const history = createBrowserHistory()
+  const { initialPath = routes.exchanges.getPath() } = context
 
   useEffect(() => {
     history.push(initialPath)
