@@ -3,7 +3,14 @@
 .navigation {
   background: var(--white);
   padding: 1rem;
-  box-shadow: 4px 4px 12px 0 var(--mercury);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--mercury);
+  border-bottom-left-radius: 2rem;
+
+  @include min-tablet {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 2rem;
+  }
 }
 
 .logo {
