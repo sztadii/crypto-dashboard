@@ -46,6 +46,7 @@ describe('exchange-details component', () => {
       trust_score_rank: 1,
       year_established: 2022,
       description: 'Some desc',
+      url: '',
       facebook_url: '',
       reddit_url: '',
       slack_url: '',
@@ -67,6 +68,7 @@ describe('exchange-details component', () => {
     context.initialPath = routes.exchangeDetails.getPath('binance')
 
     td.when(context.coinGeckoService.getExchange('binance')).thenResolve({
+      url: 'https://website.com',
       facebook_url: 'https://facebook.com/profile',
       reddit_url: 'wrong-url',
       slack_url: '',
@@ -76,6 +78,8 @@ describe('exchange-details component', () => {
 
     render(<App context={context} />)
 
+    expect(await screen.findByTestId('https://website.com')).toBeVisible()
+
     expect(
       await screen.findByTestId('https://facebook.com/profile')
     ).toBeVisible()
@@ -83,6 +87,6 @@ describe('exchange-details component', () => {
       await screen.findByTestId('https://twitter.com/twitter-profile')
     ).toBeVisible()
 
-    expect(await screen.findAllByTestId('social-icon')).toHaveLength(2)
+    expect(await screen.findAllByTestId('social-icon')).toHaveLength(3)
   })
 })
