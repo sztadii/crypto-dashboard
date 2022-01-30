@@ -24,3 +24,7 @@ Each PR the Vercel is creating the link to the staging, <br>
 so we can preview new changes ( which is awesome ^.^ ) <br>
 If you want to look at the production, <br>
 please visit this link https://crypto-dashboard-sztadii.vercel.app
+
+## Other info
+I used bootstrap icons, to improve UI / UX. <br>
+Link to documentation https://icons.getbootstrap.com <br>

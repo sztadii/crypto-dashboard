@@ -90,6 +90,7 @@ export default function ExchangeDetails() {
 
   function getSocialDetails(exchange: ExchangeWithDetails) {
     return [
+      ['info-square-fill', exchange.url],
       ['facebook', exchange.facebook_url],
       ['reddit', exchange.reddit_url],
       ['slack', exchange.slack_url],
