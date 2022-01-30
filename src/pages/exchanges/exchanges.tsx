@@ -21,16 +21,16 @@ export default function Exchanges() {
     return (
       <div className="row">
         {exchanges.map(exchange => {
-          const detailsPagePath = routes.exchangeDetails.getPath(exchange.id)
+          const pathToDetailsPage = routes.exchangeDetails.getPath(exchange.id)
           return (
             <div className="col col-12 col-md-6 col-lg-12" key={exchange.name}>
               <Link
-                to={detailsPagePath}
+                to={pathToDetailsPage}
                 className={classes.listItem}
                 data-testid="exchange-item"
               >
                 <img
-                  className={`${classes.icon} ${classes.listItemSection} no-border`}
+                  className={`${classes.listIcon} ${classes.listItemSection} no-border`}
                   src={exchange.image}
                   alt={exchange.name}
                 />

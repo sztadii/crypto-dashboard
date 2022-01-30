@@ -1,15 +1,15 @@
 @import './variables';
 
-$tablet: map-get($grid-breakpoints, 'lg');
+$tabletResolutionWidth: map-get($grid-breakpoints, 'lg');
 
 @mixin min-tablet {
-  @media (min-width: $tablet) {
+  @media (min-width: $tabletResolutionWidth) {
     @content;
   }
 }
 
 @mixin max-tablet {
-  @media (max-width: $tablet - 1) {
+  @media (max-width: $tabletResolutionWidth - 1) {
     @content;
   }
 }

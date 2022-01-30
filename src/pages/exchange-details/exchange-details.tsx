@@ -6,7 +6,7 @@ import Spinner from 'components/spinner'
 import classes from './exchange-details.module.scss'
 
 export default function ExchangeDetails() {
-  const homePath = routes.exchanges.getPath()
+  const pathToExchangesPage = routes.exchanges.getPath()
   const params = useParams()
   const context = useContext()
   const exchangeResponse = useQuery(
@@ -59,7 +59,7 @@ export default function ExchangeDetails() {
 
   return (
     <div>
-      <Link to={homePath} className={classes.link}>
+      <Link to={pathToExchangesPage} className={classes.link}>
         Back to home
       </Link>
 
