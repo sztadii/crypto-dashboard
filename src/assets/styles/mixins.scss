@@ -1,4 +1,6 @@
-$tablet: 800px;
+@import './variables';
+
+$tablet: map-get($grid-breakpoints, 'lg');
 
 @mixin min-tablet {
   @media (min-width: $tablet) {
