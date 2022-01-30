@@ -4,18 +4,15 @@ import { ContextProvider, ContextType } from 'context'
 import { RouterProvider } from 'router'
 
 interface Props {
-  initialPath?: string
   context?: ContextType
 }
 
 export default function App(props?: Props) {
-  const { initialPath, context } = props || {}
-
   return (
     <StrictMode>
-      <ContextProvider value={context}>
+      <ContextProvider value={props?.context}>
         <CacheProvider>
-          <RouterProvider initialPath={initialPath} />
+          <RouterProvider />
         </CacheProvider>
       </ContextProvider>
     </StrictMode>
