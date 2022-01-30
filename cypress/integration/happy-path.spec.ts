@@ -14,4 +14,12 @@ describe('happy-path', () => {
     cy.contains('Back to home').click()
     cy.get('[data-testid="exchange-item"]').first().should('not.be.empty')
   })
+
+  it('when a user visits the detail page and refresh then he stays there', () => {
+    cy.visit('/')
+    cy.get('[data-testid="exchange-item"]').first().click()
+    cy.contains('Back to home')
+    cy.reload()
+    cy.contains('Back to home')
+  })
 })

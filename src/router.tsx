@@ -25,9 +25,10 @@ export const routes = {
 export function RouterProvider() {
   const context = useContext()
   const history = createBrowserHistory()
-  const { initialPath = routes.exchanges.getPath() } = context
+  const { initialPath } = context
 
   useEffect(() => {
+    if (!initialPath) return
     history.push(initialPath)
   }, [])
 
