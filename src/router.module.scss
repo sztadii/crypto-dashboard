@@ -1,0 +1,17 @@
+@import 'src/assets/styles/mixins';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @include min-tablet {
+    flex-direction: row;
+  }
+}
+
+.routingContent {
+  padding: 1rem;
+  width: 100%;
+  overflow: auto;
+}

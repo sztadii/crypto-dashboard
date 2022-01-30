@@ -1,31 +1,25 @@
-body {
+html {
   font-family: 'Nunito', sans-serif;
   background: var(--gallery);
   color: var(--mine-haft);
   height: 100vh;
-  font-size: 15px;
+  font-size: 14px;
+
+  @include min-tablet {
+    font-size: 16px;
+  }
 }
 
-#root {
+#root,
+body {
   height: 100%;
 }
 
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
-}
-
-.app {
-  display: flex;
-  height: 100%;
-}
-
-.app__container {
-  padding: 2rem;
-  width: 100%;
-  overflow: auto;
 }
 
 a {
@@ -35,7 +29,9 @@ a {
 
 h1 {
   font-size: 2rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--silver);
 }
 
 p {

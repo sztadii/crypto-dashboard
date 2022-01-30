@@ -1,18 +1,25 @@
 @import 'src/assets/styles/mixins';
 
 .listItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 1rem 2rem;
   border-radius: 20px;
-  display: flex;
-  align-items: center;
   transition: 0.3s;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 1rem;
 
-  @include max-tablet {
-    flex-direction: column;
-  }
+  @include min-tablet {
+    flex-direction: row;
+    background: transparent;
+    box-shadow: none;
 
-  &:hover {
-    background: var(--white);
+    &:hover {
+      background: var(--white);
+      box-shadow: var(--box-shadow);
+    }
   }
 }
 
@@ -31,11 +38,11 @@
 }
 
 .icon {
-  height: 20px;
-  width: 20px;
+  height: 40px;
+  width: 40px;
   background: var(--silver);
-  padding: 6px;
-  border-radius: 6px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   display: flex;
   transition: 0.3s;
 
@@ -46,18 +53,18 @@
 }
 
 .externalLink {
-  opacity: 0;
   transition: 0.3s;
   background: var(--mine-haft);
   color: var(--white);
-  padding: 5px;
-  border-radius: 6px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 
-  @media screen and (min-width: 801px) {
+  @include min-tablet {
     margin-left: auto;
-  }
+    opacity: 0;
 
-  .listItem:hover & {
-    opacity: 1;
+    .listItem:hover & {
+      opacity: 1;
+    }
   }
 }

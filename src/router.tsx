@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history'
 import Exchanges from 'pages/exchanges'
 import ExchangeDetails from 'pages/exchange-details'
 import Navigation from 'components/navigation'
+import classes from './router.module.scss'
 
 export const routes = {
   exchanges: {
@@ -34,10 +35,10 @@ export function RouterProvider(props: RouterProviderProps) {
 
   return (
     <Router history={history}>
-      <div className="app">
+      <div className={classes.wrapper}>
         <Navigation />
 
-        <div className="app__container">
+        <div className={classes.routingContent}>
           <Routes>
             {Object.values(routes).map(route => {
               const { getPath, component: Component } = route

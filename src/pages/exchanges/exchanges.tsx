@@ -50,7 +50,7 @@ export default function Exchanges() {
             className={classes.externalLink}
             onClick={e => e.stopPropagation()}
           >
-            Link
+            Official website
           </a>
         </Link>
       )

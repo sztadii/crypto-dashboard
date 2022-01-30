@@ -22,7 +22,6 @@ export default function ExchangeDetails() {
     if (!exchange) return <p>No data to display</p>
 
     const detailsToRender = [
-      ['Name', exchange.name],
       ['Country', exchange.country],
       ['Trust score rank', exchange.trust_score_rank],
       ['Year of establishment', exchange.year_established],
@@ -36,6 +35,8 @@ export default function ExchangeDetails() {
 
     return (
       <div className={classes.content}>
+        <h1 data-testid="exchange-name">{exchange.name}</h1>
+
         <img
           className={classes.detailsImage}
           src={exchange.image}
@@ -58,9 +59,10 @@ export default function ExchangeDetails() {
 
   return (
     <div>
-      <Link to={homePath}>
-        <h1>Back to home</h1>
+      <Link to={homePath} className={classes.link}>
+        Back to home
       </Link>
+
       {renderContent()}
     </div>
   )

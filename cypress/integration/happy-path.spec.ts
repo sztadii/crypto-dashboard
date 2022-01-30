@@ -3,7 +3,9 @@ describe('happy-path', () => {
     cy.visit('/')
     cy.get('[data-testid="exchange-item"]').first().click()
     cy.contains('Back to home').should('be.visible')
-    cy.contains('Name:').should('be.visible').should('not.be.empty')
+    cy.get('[data-testid="exchange-name"]')
+      .should('be.visible')
+      .should('not.be.empty')
   })
 
   it('when a user visits the detail page and click "Back to home" then he will be redirected to the home page', () => {
