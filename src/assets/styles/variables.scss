@@ -8,3 +8,13 @@
   --green: #24d3b6;
   --box-shadow: 4px 4px 12px 0 var(--mercury);
 }
+
+// Please be aware $grid-breakpoints are used by Bootstrap
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
