@@ -18,39 +18,46 @@ export default function Exchanges() {
     if (isError) return <p>Something went wrong</p>
     if (!exchanges?.length) return <p>No data to display</p>
 
-    return exchanges.map(exchange => {
-      const detailsPagePath = routes.exchangeDetails.getPath(exchange.id)
-      return (
-        <Link
-          to={detailsPagePath}
-          key={exchange.name}
-          className={classes.listItem}
-          data-testid="exchange-item"
-        >
-          <img
-            className={`${classes.icon} ${classes.listItemSection} no-border`}
-            src={exchange.image}
-            alt={exchange.name}
-          />
+    return (
+      <div className="row">
+        {exchanges.map(exchange => {
+          const detailsPagePath = routes.exchangeDetails.getPath(exchange.id)
+          return (
+            <div className="col col-12 col-md-6 col-lg-12" key={exchange.name}>
+              <Link
+                to={detailsPagePath}
+                className={classes.listItem}
+                data-testid="exchange-item"
+              >
+                <img
+                  className={`${classes.icon} ${classes.listItemSection} no-border`}
+                  src={exchange.image}
+                  alt={exchange.name}
+                />
 
-          <div className={classes.listItemSection}>{exchange.name}</div>
-          <div className={classes.listItemSection}>{exchange.country}</div>
-          <div className={`${classes.listItemSection} no-border`}>
-            <strong>Trust score:</strong> {exchange.trust_score_rank}
-          </div>
+                <div className={classes.listItemSection}>{exchange.name}</div>
+                <div className={classes.listItemSection}>
+                  {exchange.country}
+                </div>
+                <div className={`${classes.listItemSection} no-border`}>
+                  <strong>Trust score:</strong> {exchange.trust_score_rank}
+                </div>
 
-          <a
-            href={exchange.url}
-            target="_blank"
-            rel="noreferrer"
-            className={classes.externalLink}
-            onClick={e => e.stopPropagation()}
-          >
-            Official website
-          </a>
-        </Link>
-      )
-    })
+                <a
+                  href={exchange.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={classes.externalLink}
+                  onClick={e => e.stopPropagation()}
+                >
+                  Official website
+                </a>
+              </Link>
+            </div>
+          )
+        })}
+      </div>
+    )
   }
 
   return (
