@@ -29,3 +29,10 @@ jobs:
 
       - name: Check bundle size
         run: npx bundlesize
+
+      - name: Archive cypress artifact on fail
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-artifact
+          path: cypress/**
