@@ -98,7 +98,7 @@ export default function ExchangeDetails() {
       ['twitter', `https://twitter.com/${exchange.twitter_handle}`]
     ].filter(detail => {
       const link = detail[1]
-      // Some links are broken or invalid
+      // Some links are empty or invalid
       // then to make links clickable we need to filter correct one
       return link.includes('http')
     })
