@@ -26,5 +26,4 @@ If you want to look at the production, <br>
 please visit this link https://crypto-dashboard-sztadii.vercel.app
 
 ## Other info
-I used bootstrap icons, to improve UI / UX. <br>
-Link to documentation https://icons.getbootstrap.com <br>
+Icons that I used you can find here https://icons.getbootstrap.com <br>
