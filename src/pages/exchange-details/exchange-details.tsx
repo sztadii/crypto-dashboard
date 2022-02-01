@@ -74,7 +74,7 @@ export default function ExchangeDetails() {
                       >
                         <i
                           data-testid="social-icon"
-                          className={`bi bi-${iconName}`}
+                          className={`bi bi-${iconName} ${classes.socialIcon}`}
                         />
                       </a>
                     </div>
