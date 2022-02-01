@@ -7,7 +7,7 @@ interface Props {
   context?: ContextType
 }
 
-export default function App(props?: Props) {
+export default function App(props: Props) {
   return (
     <StrictMode>
       <ContextProvider value={props?.context}>
