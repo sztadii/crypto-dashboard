@@ -31,6 +31,7 @@
     "@types/react-dom": "^17.0.11",
     "bundlesize": "^0.18.1",
     "cypress": "^9.3.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "file-naming-enforcer": "^1.4.0",
     "husky": "^4.3.8",
     "lint-staged": "^12.3.2",
@@ -47,7 +48,8 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:jsx-a11y/recommended"
     ],
     "rules": {
       "max-lines": [
