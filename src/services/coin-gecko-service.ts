@@ -15,10 +15,12 @@ export default class CoinGeckoService {
   findExchanges = (limit = 10): Promise<Exchange[]> => {
     return this.httpClient
       .get(`/exchanges?per_page=${limit}`)
-      .then(res => res.data)
+      .then(response => response.data)
   }
 
   getExchange = (id: string): Promise<ExchangeWithDetails> => {
-    return this.httpClient.get(`/exchanges/${id}`).then(res => res.data)
+    return this.httpClient
+      .get(`/exchanges/${id}`)
+      .then(response => response.data)
   }
 }
