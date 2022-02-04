@@ -2,6 +2,10 @@ import React, { createContext, FC } from 'react'
 import CoinGeckoService from './services/coin-gecko-service'
 
 export type ContextType = {
+  /**
+   * In this way almost effortless we can set up initial route.
+   * Very helpful during testing.
+   * */
   initialPath?: string
   coinGeckoService: CoinGeckoService
 }
