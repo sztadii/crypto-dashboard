@@ -35,13 +35,13 @@ export default function Exchanges() {
                   alt={exchange.name}
                 />
 
-                <div className={classes.listItemSection}>{exchange.name}</div>
-                <div className={classes.listItemSection}>
+                <span className={classes.listItemSection}>{exchange.name}</span>
+                <span className={classes.listItemSection}>
                   {exchange.country}
-                </div>
-                <div className={`${classes.listItemSection} no-border`}>
+                </span>
+                <span className={`${classes.listItemSection} no-border`}>
                   <strong>Trust score:</strong> {exchange.trust_score_rank}
-                </div>
+                </span>
 
                 <a
                   href={exchange.url}
