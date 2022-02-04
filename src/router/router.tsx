@@ -6,21 +6,9 @@ import {
 } from 'react-router-dom'
 import { useContext } from 'context'
 import { createBrowserHistory } from 'history'
-import Exchanges from 'pages/exchanges'
-import ExchangeDetails from 'pages/exchange-details'
 import Navigation from 'components/navigation'
 import classes from './router.module.scss'
-
-export const routes = {
-  exchanges: {
-    getPath: () => '/',
-    component: Exchanges
-  },
-  exchangeDetails: {
-    getPath: (exchangeId = ':exchangeId') => `/exchange-details/${exchangeId}`,
-    component: ExchangeDetails
-  }
-}
+import { routes } from './routes'
 
 export function RouterProvider() {
   const context = useContext()
