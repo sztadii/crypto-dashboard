@@ -1,14 +1,14 @@
 import { Link, useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import { useContext } from 'context'
-import { routes } from 'router'
+import { routes, RoutesParams } from 'router'
 import Spinner from 'components/spinner'
 import { ExchangeWithDetails } from 'services/coin-gecko-service.types'
 import classes from './exchange-details.module.scss'
 
 export default function ExchangeDetails() {
   const pathToExchangesPage = routes.exchanges.getPath()
-  const params = useParams()
+  const params = useParams<RoutesParams['exchangeDetails']>()
   const context = useContext()
   const exchangeResponse = useQuery(
     `exchange-details-${params.exchangeId}`,
