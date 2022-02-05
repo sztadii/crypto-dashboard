@@ -8,9 +8,10 @@
     "test-unit": "CI=true react-scripts test --silent",
     "test-e2e": "start-server-and-test start http://localhost:3000 test-cypress",
     "test-cypress": "cypress run --config-file cypress/cypress.json",
-    "lint": "npm run lint-scripts && npm run lint-files",
+    "lint": "npm run lint-scripts && npm run lint-files-names && npm run lint-format",
     "lint-scripts": "eslint \"./**/*.{ts,tsx}\" --max-warnings 0 --ignore-path .gitignore",
-    "lint-files": "file-naming-enforcer type=kebabCase ignore=[README,public,build,videos,setupTests]",
+    "lint-files-names": "file-naming-enforcer type=kebabCase ignore=[README,public,build,videos,setupTests]",
+    "lint-format": "prettier --ignore-path .gitignore --check \"**/*.{ts,tsx,js,json,scss}\"",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,scss}\""
   },
   "dependencies": {
