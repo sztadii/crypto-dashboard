@@ -3,7 +3,7 @@ name: Quality check
 on: [push]
 
 jobs:
-  quality-check:
+  quick-check:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,14 +21,26 @@ jobs:
       - name: Unit / integration tests
         run: npm run test-unit
 
-      - name: E2E tests
-        run: npm run test-e2e
-
       - name: Checking build
         run: npm run build
 
       - name: Check bundle size
         run: npx bundlesize
+
+  e2e-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Dependency instalation
+        run: npm install
+
+      - name: E2E tests
+        run: npm run test-e2e
 
       - name: Archive cypress artifact on fail
         if: failure()
