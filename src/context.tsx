@@ -4,7 +4,7 @@ import CoinGeckoService from './services/coin-gecko-service'
 export type ContextType = {
   /**
    * In this way almost effortless we can set up initial route.
-   * Very helpful during testing.
+   * Very helpful during unit testing.
    * */
   initialPath?: string
   coinGeckoService: CoinGeckoService
