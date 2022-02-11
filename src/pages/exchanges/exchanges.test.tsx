@@ -36,14 +36,16 @@ describe('exchanges', () => {
   it('when we fetched the list then render it', async () => {
     const context = td.object<ContextType>()
 
-    td.when(context.coinGeckoService.findExchanges()).thenResolve([
+    td.when<Partial<Exchange>[]>(
+      context.coinGeckoService.findExchanges()
+    ).thenResolve([
       {
         name: 'Bitcoin'
       },
       {
         name: 'Dogecoin'
       }
-    ] as Exchange[])
+    ])
 
     render(<App context={context} />)
 
