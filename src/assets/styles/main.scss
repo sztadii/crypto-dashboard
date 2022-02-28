@@ -4,6 +4,7 @@ html {
   color: var(--mine-haft);
   height: 100vh;
   font-size: 14px;
+  line-height: 1.1;
 
   @include min-tablet {
     font-size: 16px;
