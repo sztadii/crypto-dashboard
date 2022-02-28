@@ -1,7 +1,6 @@
 {
   "name": "crypto-dashboard",
   "scripts": {
-    "preinstall": "REQUIRED=npm npx one-package-manager-enforcer",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "npm run test-unit && npm run test-e2e",
