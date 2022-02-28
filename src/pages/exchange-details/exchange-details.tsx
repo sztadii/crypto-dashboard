@@ -91,17 +91,28 @@ export default function ExchangeDetails() {
   function getSocialDetails(exchange: ExchangeWithDetails) {
     return [
       ['info-square-fill', exchange.url],
-      ['facebook', exchange.facebook_url],
-      ['reddit', exchange.reddit_url],
+      ['facebook', exchange.facebook_url, 'https://facebook.com/'],
+      ['reddit', exchange.reddit_url, 'https://reddit.com'],
       ['slack', exchange.slack_url],
-      ['telegram', exchange.telegram_url],
-      ['twitter', `https://twitter.com/${exchange.twitter_handle}`]
-    ].filter(detail => {
-      const link = detail[1]
-      // Some links are empty or invalid
-      // then to make links clickable we need to filter correct one
-      return link.includes('http')
-    })
+      ['telegram', exchange.telegram_url, 'https://t.me/'],
+      ['twitter', exchange.twitter_handle, 'https://twitter.com/']
+    ]
+      .map(detail => {
+        // Some links are path to the service
+        // To make it work, we specify the address to that service
+        const [icon, url, serviceURL] = detail
+
+        if (!url.length) return detail
+
+        const hasFullURL = url.includes('http')
+        return hasFullURL ? [icon, url] : [icon, serviceURL + url]
+      })
+      .filter(detail => {
+        const link = detail[1]
+        // Some links are empty
+        // To make links clickable we need to filter them
+        return !!link.length
+      })
   }
 
   return (
