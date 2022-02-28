@@ -63,14 +63,14 @@ describe('exchange-details component', () => {
     expect(await screen.findByText('Some desc')).toBeVisible()
   })
 
-  it('when we fetched the exchange then display social icons ( only for valid or not empty url )', async () => {
+  it('when we fetched the exchange then display social icons ( not empty url )', async () => {
     const context = td.object<ContextType>()
     context.initialPath = routes.exchangeDetails.getPath('binance')
 
     td.when(context.coinGeckoService.getExchange('binance')).thenResolve({
       url: 'https://website.com',
       facebook_url: 'https://facebook.com/profile',
-      reddit_url: 'wrong-url',
+      reddit_url: '/web-xxd',
       slack_url: '',
       telegram_url: '',
       twitter_handle: 'twitter-profile'
@@ -86,7 +86,10 @@ describe('exchange-details component', () => {
     expect(
       await screen.findByTestId('https://twitter.com/twitter-profile')
     ).toBeVisible()
+    expect(
+      await screen.findByTestId('https://reddit.com/web-xxd')
+    ).toBeVisible()
 
-    expect(await screen.findAllByTestId('social-icon')).toHaveLength(3)
+    expect(await screen.findAllByTestId('social-icon')).toHaveLength(4)
   })
 })
