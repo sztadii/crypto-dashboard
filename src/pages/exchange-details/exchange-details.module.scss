@@ -8,12 +8,16 @@
 }
 
 .detailsImage {
-  width: 150px;
-  height: 150px;
+  width: 60px;
+  height: 60px;
   background: var(--silver);
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+  }
 }
 
 .link {
