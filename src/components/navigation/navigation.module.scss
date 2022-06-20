@@ -7,7 +7,7 @@
   border: 1px solid var(--mercury);
   border-bottom-left-radius: 2rem;
 
-  @include min-tablet {
+  @include media-breakpoint-up(lg) {
     border-bottom-left-radius: 0;
     border-top-right-radius: 2rem;
   }
@@ -17,7 +17,7 @@
   height: 30px;
   transition: 0.3s;
 
-  @include min-tablet {
+  @include media-breakpoint-up(lg) {
     height: 40px;
   }
 

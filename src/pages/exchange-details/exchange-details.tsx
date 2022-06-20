@@ -33,9 +33,7 @@ export default function ExchangeDetails() {
 
     return (
       <div className={classes.content}>
-        <h1 data-testid="exchange-name">{exchange.name}</h1>
-
-        <div className="row">
+        <div className="row mb-3">
           <div className="col col-12 col-md-auto">
             <img
               className={classes.detailsImage}
@@ -44,43 +42,51 @@ export default function ExchangeDetails() {
             />
           </div>
 
-          <div className="col col-12 col-md">
-            <div className="mb-3">
-              <h2 className="mb-2">Main details</h2>
+          <div className="col col-12 col-md d-flex align-items-center">
+            <h1 className="mb-0" data-testid="exchange-name">
+              {exchange.name}
+            </h1>
+          </div>
+        </div>
 
-              {mainDetailsToRender.map(detail => {
-                const [label, value] = detail
+        <hr className="mb-3" />
+
+        <div className="row">
+          <div className="col-12 col-md-6 col-xl-4 mb-4">
+            <h2 className="mb-2">Main details</h2>
+
+            {mainDetailsToRender.map(detail => {
+              const [label, value] = detail
+              return (
+                <p key={label}>
+                  <strong>{label}:</strong> {value || '-'}
+                </p>
+              )
+            })}
+          </div>
+
+          <div className="col-12 col-md-6 col-xl-4">
+            <h2 className="mb-2">Social</h2>
+
+            <div className="row">
+              {socialDetailsToRender.map(detail => {
+                const [iconName, link] = detail
                 return (
-                  <p key={label}>
-                    <strong>{label}:</strong> {value || '-'}
-                  </p>
+                  <div className="col-auto mt-1" key={iconName}>
+                    <a
+                      data-testid={link}
+                      href={link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <i
+                        data-testid="social-icon"
+                        className={`bi bi-${iconName} ${classes.socialIcon}`}
+                      />
+                    </a>
+                  </div>
                 )
               })}
-            </div>
-
-            <div>
-              <h2 className="mb-2">Social</h2>
-
-              <div className="row">
-                {socialDetailsToRender.map(detail => {
-                  const [iconName, link] = detail
-                  return (
-                    <div className="col-auto mt-1" key={iconName}>
-                      <a
-                        data-testid={link}
-                        href={link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <i
-                          data-testid="social-icon"
-                          className={`bi bi-${iconName} ${classes.socialIcon}`}
-                        />
-                      </a>
-                    </div>
-                  )
-                })}
-              </div>
             </div>
           </div>
         </div>

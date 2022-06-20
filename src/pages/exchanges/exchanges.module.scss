@@ -11,7 +11,7 @@
   box-shadow: var(--box-shadow);
   margin-bottom: 1rem;
 
-  @include min-tablet {
+  @include media-breakpoint-up(lg) {
     flex-direction: row;
     background: transparent;
     box-shadow: none;
@@ -24,13 +24,13 @@
 }
 
 .listItemSection {
-  @include max-tablet {
+  @include media-breakpoint-down(lg) {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--silver);
   }
 
-  @include min-tablet {
+  @include media-breakpoint-up(lg) {
     margin-right: 1rem;
     padding-right: 1rem;
     border-right: 1px solid var(--silver);
@@ -59,7 +59,7 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
 
-  @include min-tablet {
+  @include media-breakpoint-up(lg) {
     margin-left: auto;
     opacity: 0;
 

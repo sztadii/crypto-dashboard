@@ -1,15 +1,2 @@
 @import './variables';
-
-$tabletResolutionWidth: map-get($grid-breakpoints, 'lg');
-
-@mixin min-tablet {
-  @media (min-width: $tabletResolutionWidth) {
-    @content;
-  }
-}
-
-@mixin max-tablet {
-  @media (max-width: $tabletResolutionWidth - 1) {
-    @content;
-  }
-}
+@import 'bootstrap/scss/mixins';

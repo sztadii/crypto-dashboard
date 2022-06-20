@@ -64,6 +64,8 @@ export default function Exchanges() {
     <div>
       <h1>Exchanges</h1>
 
+      <hr className="mb-3" />
+
       {renderExchangeList()}
     </div>
   )
