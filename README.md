@@ -5,7 +5,7 @@ The UI dashboard to present useful information about crypto exchanges
 
 ## How to run the app
 Please install `node manager` from `https://github.com/tj/n` <br>
-Set up the node version ( specified in engines.node inside the package.json ) by running
+Set up the node version ( specified in .nvmrc file ) by running
 ```
 n auto
 ```
