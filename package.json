@@ -96,5 +96,8 @@
       "path": "./build/**/*.css",
       "maxSize": "20 kB"
     }
-  ]
+  ],
+  "engines": {
+    "node": "14.17.1"
+  }
 }
