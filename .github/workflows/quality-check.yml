@@ -8,12 +8,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      # node-version-file will support package.json file
-      # once they publish it as a stable release please uncomment the below line
-      # uses: actions/setup-node@v3
-      - uses: actions/setup-node@348e00800850ca70958af8888ebdb3cce7cbcddc
+      - uses: actions/setup-node@v3
         with:
           node-version-file: 'package.json'
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
 
       - name: Dependency installation
         run: npm install
@@ -22,35 +27,10 @@ jobs:
         run: npm run lint
 
       - name: Unit / integration tests
-        run: npm run test-unit
+        run: npm run test
 
       - name: Checking build
         run: npm run build
 
       - name: Check bundle size
         run: npx bundlesize
-
-  e2e-check:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      # node-version-file will support package.json file
-      # once they publish it as a stable release please uncomment the below line
-      # uses: actions/setup-node@v3
-      - uses: actions/setup-node@348e00800850ca70958af8888ebdb3cce7cbcddc
-        with:
-          node-version-file: 'package.json'
-
-      - name: Dependency installation
-        run: npm install
-
-      - name: E2E tests
-        run: npm run test-e2e
-
-      - name: Archive cypress artifact on fail
-        if: failure()
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-artifact
-          path: cypress/**
