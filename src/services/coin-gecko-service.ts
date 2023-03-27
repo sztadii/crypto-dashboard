@@ -9,7 +9,10 @@ export default class CoinGeckoService {
   private httpClient: AxiosInstance
 
   constructor(baseURL = 'https://api.coingecko.com/api/v3') {
-    this.httpClient = axios.create({ baseURL })
+    this.httpClient = axios.create({
+      baseURL,
+      timeout: 5_000
+    })
   }
 
   findExchanges = (limit = 10): Promise<Exchange[]> => {
