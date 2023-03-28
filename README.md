@@ -18,6 +18,10 @@ Once you will download the dependencies then we can run the app by
 npm start
 ```
 
+<br />
+<br />
+<br />
+
 ### Production
 To see production please visit this [link](https://crypto-dashboard-sztadii.vercel.app)
 
