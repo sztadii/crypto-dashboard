@@ -23,8 +23,6 @@ To see production please visit this [link](https://crypto-dashboard-sztadii.verc
 
 <br />
 <br />
-<br />
-<br />
 
 # The Task
 Using the Coingecko public API (https://www.coingecko.com/en/api),
